@@ -1,0 +1,11 @@
+node_modules
+build
+src
+test
+jest.config.js
+tsconfig.json
+tsconfig.tsbuildinfo
+package-lock.json
+.eslintrc
+.eslintignore
+.prettierrc
