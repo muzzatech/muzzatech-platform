@@ -26,9 +26,6 @@ packages/*/build
 packages/*/dist
 packages/*/tsconfig.tsbuildinfo
 
-
-package-lock.json
-
 .dccache
 .npmrc
 
