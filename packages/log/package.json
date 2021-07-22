@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "@types/log4js": "^2.3.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
