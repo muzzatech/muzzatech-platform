@@ -1,6 +1,26 @@
 language: node_js
-node_js: "12"
+ 
+# verificar version a usar
+node_js: 12
+ 
 cache: yarn
-script:
-  - "yarn install"
-  - "yarn test"
+ 
+jobs:
+  include:
+    - stage: test
+      install:
+        - yarn install
+      script:
+        - yarn test
+    - stage: deploy
+      #install:
+      #  - yarn install
+      script:
+        - echo "Deploy"
+        #- yarn deploy
+ 
+stages:
+  - name: test
+    if: type = pull_request
+  - name: deploy
+    if: type = push AND branch = main 
