@@ -1,0 +1,51 @@
+name: test-platform
+
+on: [pull_request]
+
+jobs:
+  yr-cache:
+    name: prepare yarn cache
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.x 
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2.1.6
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn2-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn2-
+
+  test:
+    name: Node v${{ matrix.node-version }} on ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 15.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    needs: yr-cache
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: node ${{ matrix.node-version }} 
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }} 
+      - name: get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2.1.6
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn2-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn2-
+      - name: install dependencies
+        run: yarn --frozen-lockfile
+      - name: execute test 
+        run: yarn test
