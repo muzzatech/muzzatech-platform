@@ -1,10 +1,7 @@
-#sudo: false
-
 language: node_js
 
 # verificar version a usar
-node_js:
-  - node
+node_js: 12
 
 cache: yarn
 
@@ -15,8 +12,15 @@ jobs:
         - yarn install
       script:
         - yarn test
+    - stage: deploy
+      #install:
+      #  - yarn install
+      script:
+        - echo "Deploy"
+        #- yarn deploy
 
 stages:
   - name: test
-    # type = pull_request | type push
-    # if: type = pull_request AND branch = main
+    if: type = pull_request
+  - name: deploy
+    if: type = push AND branch = main 
