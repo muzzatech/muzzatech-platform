@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "pre-push hook running"
+
+hook_error() {
+  echo "pre-push error"
+  exit 1
+}
+
+echo "execute all test"
+yarn test || hook_error

@@ -14,9 +14,11 @@
     "node_modules",
     "**/package/**/node_modules",
     "**/package/**/build",
+    "**/package/**/dist",
     "**/__tests__/**/*",
     "**/__mocks__/**/*",
-    "**/build/**/*"
+    "**/build/**/*",
+    "scripts"
   ],
   "include": [
     "src/"
