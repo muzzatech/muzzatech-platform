@@ -1,0 +1,5 @@
+#!/bin/sh
+
+"execute fix lint"
+
+yarn lint:fix
