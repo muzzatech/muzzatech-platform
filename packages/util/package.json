@@ -13,9 +13,9 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "joi": "^17.4.2"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }

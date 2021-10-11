@@ -4,7 +4,8 @@
     "outDir": "dist",
     "rootDir": "src",
     "importsNotUsedAsValues": "preserve",
-    "composite": true
+    "composite": true,
+    "esModuleInterop": true
   },
   "include": [
     "src/"
