@@ -1,1 +1,1 @@
-export * from './MuzzaError';
+export * from './error';
