@@ -1,0 +1,22 @@
+{
+  "name": "@muzzatech/util",
+  "version": "0.0.1",
+  "description": "Util Package for works with MuzzaTech platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "muzzatech",
+  "repository": "git@github.com:muzzatech/muzzatech-platform.git",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
