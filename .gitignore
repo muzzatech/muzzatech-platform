@@ -28,4 +28,5 @@ packages/*/tsconfig.tsbuildinfo
 
 .dccache
 .npmrc
+config
 
