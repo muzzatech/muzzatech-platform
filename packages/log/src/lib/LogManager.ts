@@ -1,13 +1,21 @@
-import { Log, LogGenerate } from './Log';
-import { LogFactory } from './LogFactory';
+import { LogStrategyGenerate } from './LogStrategy';
+import { Log4JS } from '../default/Log4js';
 
 class LogManager {
-  define(logClass: LogGenerate) {
-    LogFactory.setLogger(logClass);
+  private _log!: LogStrategyGenerate;
+
+  define(strategy: LogStrategyGenerate) {
+    this._log = strategy;
   }
 
-  get(...params: Array<any>): Log {
-    return LogFactory.getLogger(...params);
+  get(): LogStrategyGenerate {
+    if (!this._log) {
+      this.define(Log4JS);
+      console.log(
+        `LogStrategy not found, Please use LogManager.define, use default logger`,
+      );
+    }
+    return this._log;
   }
 }
 

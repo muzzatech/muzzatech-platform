@@ -1,4 +1,4 @@
-import { LogManager } from '../src/';
+import { LogManager, Logger } from '../src/';
 import { LogConsole } from './util/LogConsoleMock';
 
 describe('LOG TEST', () => {
@@ -10,7 +10,7 @@ describe('LOG TEST', () => {
   });
 
   it('Use Default Logger | LOG4JS', (done) => {
-    const Log = LogManager.get('MuzzaTech Logger');
+    const Log = new Logger('MuzzaTech Logger');
     Log.info = jest.fn();
     Log.info('Hello World!!');
     expect(Log.info).toHaveBeenCalledWith('Hello World!!');
@@ -19,7 +19,7 @@ describe('LOG TEST', () => {
 
   it('Use Created Logger based to console.log', (done) => {
     LogManager.define(LogConsole);
-    const Log = LogManager.get('Console Log');
+    const Log = new Logger('Console Log');
     Log.info = jest.fn();
     Log.info('Hello World!!');
     expect(Log.info).toHaveBeenCalledWith('Hello World!!');

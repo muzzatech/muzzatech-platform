@@ -1,5 +1,5 @@
 import * as log4js from 'log4js';
-import { Log } from '../lib/Log';
+import { LogStrategy } from '../lib/LogStrategy';
 
 log4js.configure({
   appenders: {
@@ -10,7 +10,7 @@ log4js.configure({
   },
 });
 
-export class Log4JS implements Log {
+export class Log4JS implements LogStrategy {
   private _log!: log4js.Logger;
 
   constructor(name: string) {

@@ -1,6 +1,6 @@
-import { Log } from '../../src';
+import { LogStrategy } from '../../src';
 
-export class LogConsole implements Log {
+export class LogConsole implements LogStrategy {
   info(message: any, ...params: any[]): void {
     console.log(message, ...params);
   }
