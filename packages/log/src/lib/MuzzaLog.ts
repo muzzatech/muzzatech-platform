@@ -1,7 +1,7 @@
 import { LogStrategy } from './LogStrategy';
 import { LogManager } from './LogManager';
 
-export class Logger {
+export class MuzzaLog {
   private _log: LogStrategy;
 
   constructor(name: string, ...params: Array<string>) {
