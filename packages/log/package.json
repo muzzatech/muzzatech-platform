@@ -1,6 +1,6 @@
 {
   "name": "@muzzatech/log",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Log Package for works with MuzzaTech platform",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
