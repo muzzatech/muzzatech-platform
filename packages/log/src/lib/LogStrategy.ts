@@ -1,4 +1,4 @@
-export interface Log {
+export interface LogStrategy {
   info(message: any, ...params: Array<any>): void;
   error(message: any, ...params: Array<any>): void;
   fatal(message: any, ...params: Array<any>): void;
@@ -7,6 +7,6 @@ export interface Log {
   trace(message: any, ...params: Array<any>): void;
 }
 
-export interface LogGenerate {
-  new (...params: Array<any>): Log;
+export interface LogStrategyGenerate {
+  new (name: string, ...params: Array<any>): LogStrategy;
 }

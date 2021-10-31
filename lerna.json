@@ -2,7 +2,19 @@
   "packages": [
     "packages/*"
   ],
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "**/test/**",
+        "**/CHANGELOG.md",
+        "**/node_modules/**",
+        "**/package.json",
+        "**/*.md"
+      ]
+    }
+  },
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.0.1"
+  "version": "independent",
+  "lerna": "3.10.1"
 }
