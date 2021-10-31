@@ -1,6 +1,6 @@
 {
   "name": "@muzzatech/util",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Util Package for works with MuzzaTech platform",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
