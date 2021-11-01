@@ -14,5 +14,11 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.6.1"
   }
 }
