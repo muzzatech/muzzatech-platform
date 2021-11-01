@@ -20,27 +20,12 @@ export default class PostgresDatabase extends Database {
     this.pool.connect();
   }
 
-  private async disconnect() {
+  protected async disconnect() {
     this.pool.end();
   }
 
   async query(sql: string, params: any[] = []) {
     const { rows } = await this.pool.query(sql, params);
     return rows;
-  }
-
-  async transaction(callback: (db: PostgresDatabase) => Promise<any>) {
-    this.connect();
-    try {
-      await this.query('BEGIN');
-      const result = await callback(this);
-      await this.query('COMMIT');
-      return result;
-    } catch (e) {
-      await this.query('ROLLBACK');
-      throw e;
-    } finally {
-      this.disconnect();
-    }
   }
 }
