@@ -1,5 +1,7 @@
 import Joi, { AnySchema } from 'joi';
 
+export { Joi as Validator };
+
 class ValidatorManager {
   create(): Joi.Root {
     return Joi;
